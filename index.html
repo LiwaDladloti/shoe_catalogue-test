@@ -10,22 +10,22 @@
 <body>
 <h1>LIWA MEN</h1>
     <script class = 'shoeOptions' type="text/handlebars-x">
-        <select>
-            {{#each stock}}
-            <option >{{shoeType}}</option>
+        <select class = 'dropDowns'>
+            {{#each stockType}}
+            <option>{{this}}</option>
             {{/each}}
         </select>
-        <select>
-            {{#each stock}}
-            <option >{{shoeColour}}</option>
+        <select class = 'dropDowns'>
+            {{#each stockColours}}
+            <option>{{this}}</option>
             {{/each}}
         </select>
-        <select>
-            {{#each stock}}
-            <option >{{shoeSize}}</option>
+        <select class = 'dropDowns'>
+            {{#each stockSizes}}
+            <option>{{this}}</option>
             {{/each}}
         </select>
-        </script>
+    </script>
 
         <script class = 'tableTemp' type="text/handlebars-x">
         <table>
@@ -48,11 +48,14 @@
         </table>
         </script>
 
-    <div class = 'dropDown'>
-    
+    <div class = 'dropdownDisplay'>
+        <select class = 'types'></select>
+        <select class = 'colors'></select>
+        <select class = 'sizes'></select>
     </div>
+
     <div class = 'tableDisplay'>
-    
+        
     </div>
     <hr>
 <div id = 'addingStock'>
@@ -66,7 +69,7 @@
     <hr>
     <input type = 'text' placeholder = 'Add price' id = 'newPrice'>
     <hr>
-    <button onclick = 'addStock()'>Add Stock</button>
+    <button class = 'addButton'>Add Stock</button>
 </div>
 </body>
 
