@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        LIWA MEN - Shoes
+    </title>
+    <link rel = 'stylesheet' type = 'text/css' href = 'shoe.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+</head>
+
+<body>
+<h1>LIWA MEN</h1>
+    <script class = 'shoeOptions' type="text/handlebars-x">
+        <select>
+            {{#each stock}}
+            <option >{{shoeType}}</option>
+            {{/each}}
+        </select>
+        <select>
+            {{#each stock}}
+            <option >{{shoeColour}}</option>
+            {{/each}}
+        </select>
+        <select>
+            {{#each stock}}
+            <option >{{shoeSize}}</option>
+            {{/each}}
+        </select>
+        </script>
+
+        <script class = 'tableTemp' type="text/handlebars-x">
+        <table>
+            <thead>
+                <th>Shoe type</th>
+                <th>Shoe colour</th>
+                <th>Shoe size</th>
+                <th>Quantity in stock</th>
+                <th>Shoe price</th>
+            </thead>
+            {{#each stock}}
+            <tbody>
+                <td>{{shoeType}}</td>
+                <td>{{shoeColour}}</td>
+                <td>{{shoeSize}}</td>
+                <td>{{quantityInStock}}</td>
+                <td>{{shoePrice}}</td>
+            </tbody>
+            {{/each}}
+        </table>
+        </script>
+
+    <div class = 'dropDown'>
+    
+    </div>
+    <div class = 'tableDisplay'>
+    
+    </div>
+    <hr>
+<div id = 'addingStock'>
+    <input type = 'text' placeholder = 'Add shoe' id = 'newShoe'>
+    <hr>
+    <input type = 'text' placeholder = 'Add colour' id = 'newColour'>
+    <hr>
+    <input type = 'text' placeholder = 'Add size' id = 'newSize'>
+    <hr>
+    <input type = 'text' placeholder = 'Add quanity in stock' id = 'newQuantity'>
+    <hr>
+    <input type = 'text' placeholder = 'Add price' id = 'newPrice'>
+    <hr>
+    <button onclick = 'addStock()'>Add Stock</button>
+</div>
+</body>
+
+<script type = 'text/javascript' charset = 'utf-8' src = 'shoe.js'></script>
