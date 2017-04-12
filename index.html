@@ -36,15 +36,22 @@
                 <th>Quantity in stock</th>
                 <th>Shoe price</th>
             </thead>
-            {{#each stock}}
             <tbody>
-                <td>{{shoeType}}</td>
-                <td>{{shoeColour}}</td>
-                <td>{{shoeSize}}</td>
-                <td>{{quantityInStock}}</td>
-                <td>{{shoePrice}}</td>
-            </tbody>
+            {{#each stock}}
+            
+                <tr>
+                    <td>{{shoeType}}</td>
+                    <td>{{shoeColour}}</td>
+                    <td>{{shoeSize}}</td>
+                    <td>{{quantityInStock}}</td>
+                    <td>{{shoePrice}}</td>
+                </tr>
+            {{else}}
+            <tr>
+                <td colspan="5">No stock</td>    
+            </tr>
             {{/each}}
+            </tbody>
         </table>
         </script>
 
@@ -71,6 +78,10 @@
     <hr>
     <button class = 'addButton'>Add Stock</button>
 </div>
+    <hr>
+    <button class = 'check'>Check Stock</button>
+    <hr>
+    <button class = 'showAllStock'> See All Stock</button>
 </body>
 
 <script type = 'text/javascript' charset = 'utf-8' src = 'shoe.js'></script>
