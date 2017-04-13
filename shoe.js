@@ -4,39 +4,38 @@ var stock = [
         shoeColour: 'Brown',
         shoeSize: '6',
         quantityInStock: '7',
-        shoePrice: 'R1 200.00'
+        shoePrice: '1 200'
     },
     {
         shoeType: 'Loafer',
         shoeColour: 'Maroon',
         shoeSize: '8',
         quantityInStock: '2',
-        shoePrice: 'R650.00'
+        shoePrice: '650'
     },
     {
         shoeType: 'Wingtips',
         shoeColour: 'Brown',
         shoeSize: '6',
         quantityInStock: '4',
-        shoePrice: 'R849.99'
+        shoePrice: '849'
     },
     {
         shoeType: 'Monk Strap',
         shoeColour: 'Black',
         shoeSize: '7',
         quantityInStock: '5',
-        shoePrice: 'R1 200.00'
+        shoePrice: '1 200'
     }
 ]
 
 var add = document.querySelector('.addButton');
-//drop down
+
 var template = document.querySelector('.shoeOptions').innerHTML;
 var temp = Handlebars.compile(template);
-//table
+
 var tableTemplate = document.querySelector('.tableTemp').innerHTML;
 var tableTemp = Handlebars.compile(tableTemplate);
-
 
 function uniqueType() {
     var uniqType = []
@@ -124,11 +123,9 @@ var pushToThis = [];
 for(var i = 0; i < stock.length; i++) {
     var shoeValue = stock[i];
     if(typeDrop === shoeValue.shoeType && colorDrop === shoeValue.shoeColour && sizeDrop === shoeValue.shoeSize) {
-        pushToThis.push(stock[i]);
-
-    } 
+        pushToThis.push(shoeValue);
+    }
 }
-
 document.querySelector('.tableDisplay').innerHTML = 
         tableTemp({stock: pushToThis})
 });
@@ -137,4 +134,4 @@ var showAll = document.querySelector('.showAllStock');
 showAll.addEventListener('click', function() {
     document.querySelector('.tableDisplay').innerHTML = 
         tableTemp({stock: stock})
-})
+});
