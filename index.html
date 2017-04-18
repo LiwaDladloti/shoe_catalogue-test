@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>
         LIWA MEN - Shoes
@@ -8,17 +9,22 @@
 </head>
 
 <body>
-<h1>LIWA MEN</h1>
     <script class = 'shoeOptions' type="text/handlebars-x">
+            <datalist id = 'typeData'>
             {{#each stockType}}
                 <option>{{this}}</option>
             {{/each}}
+            </datalist>
+            <datalist id = 'colourData'>
             {{#each stockColours}}
                 <option>{{this}}</option>
             {{/each}}
+            </datalist>
+            <datalist id = 'sizeData'>
             {{#each stockSizes}}
                 <option>{{this}}</option>
             {{/each}}
+            </datalist>
     </script>
 
     <script class = 'tableTemp' type="text/handlebars-x">
@@ -41,23 +47,52 @@
                 </tr>
             {{else}}
             <tr>
-                <td colspan="5">No stock</td>    
+                <td colspan="5"><h1 align = 'center'>No stock</h1></td>    
             </tr>
             {{/each}}
             </tbody>
         </table>
         </script>
-
+<div id = 'head'>
+    <h1> LIWA MEN </h1>
+    <h4> IT'S NEVER JUST A SHOE</h4>
+</div>
+    
+<div id = 'slideShow'>
+    <img src = 'IMG-20161211-WA0000.jpg' width = '320' height = '317' class = 'slides'>
+    <img src = 'IMG_20161211_125653.JPG' width = '320' height = '317' class = 'slides'>
+    <img src = 'IMG_20161211_125559.JPG' width = '320' height = '317' class = 'slides'>
+    <img src = 'IMG_20161211_125744.JPG' width = '320' height = '317' class = 'slides'>
+    <img src = 'IMG-20160707-WA0005.jpg' width = '320' height = '317' class = 'slides'>
+    <img src = 'IMG-20161211-WA0006.jpg' width = '320' height = '317' class = 'slides'>
+    <img src = 'IMG-20161211-WA0008.jpg' width = '320' height = '317' class = 'slides'>
+</div>
+<div id = 'page'>
     <div class = 'dropdownDisplay'>
-        <select class = 'types'></select>
-        <select class = 'colors'></select>
-        <select class = 'sizes'></select>
+        <h3>Select shoe type:</h3>
+        <input type = 'text' list = 'typeData' placeholder = 'Shoe type' class = 'types'>
+        <h3>Select shoe colour:</h3>
+        <input type = 'text' list = 'colourData' placeholder = 'Colour of shoe' class = 'colors'>
+        <h3>Select shoe size:</h3>
+        <input type = 'text' list = 'sizeData' placeholder = 'Size of shoe' class = 'sizes'>
+        <hr>
     </div>
-
-    <div class = 'tableDisplay'>
-        
-    </div>
+    <button class = 'check'>Check Stock</button>
     <hr>
+    <button class = 'showAllStock'> See All Stock</button>
+</div>
+<hr>
+<div class = 'tableDisplay'>
+
+</div>
+<hr>
+    <div id = 'btn'>
+    <button onclick = 'stockUpdate()'>Update Stock</button>
+    </div>
+    
+<div id = 'logIn'>
+    
+</div>
 <div id = 'addingStock'>
     <input type = 'text' placeholder = 'Add shoe' id = 'newShoe'>
     <hr>
@@ -71,10 +106,8 @@
     <hr>
     <button class = 'addButton'>Add Stock</button>
 </div>
-    <hr>
-    <button class = 'check'>Check Stock</button>
-    <hr>
-    <button class = 'showAllStock'> See All Stock</button>
+<hr>
+    
 </body>
-
 <script type = 'text/javascript' charset = 'utf-8' src = 'shoe.js'></script>
+</html>

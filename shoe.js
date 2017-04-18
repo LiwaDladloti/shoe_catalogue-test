@@ -37,11 +37,28 @@ var temp = Handlebars.compile(template);
 var tableTemplate = document.querySelector('.tableTemp').innerHTML;
 var tableTemp = Handlebars.compile(tableTemplate);
 
+var slider = 0;
+
+function imgSlide() {
+    'use strict';
+    var mySlides = document.getElementsByClassName('slides');
+    for (var i = 0; i < mySlides.length; i++){
+        mySlides[i].style.display = 'none';
+    }
+    slider++;
+    if (slider > mySlides.length) {
+        slider = 1;
+    }
+    mySlides[slider - 1].style.display = 'inline-block';
+    setTimeout(imgSlide, 4000);
+}
+imgSlide();
+
 function uniqueType() {
     var uniqType = []
     var typeMap = {}
-    for (var y = 0; y < stock.length; y++){
-        var types = stock[y]
+    for (var i = 0; i < stock.length; i++){
+        var types = stock[i]
         if (typeMap[types.shoeType] === undefined){
             typeMap[types.shoeType] = types.shoeType;
             uniqType.push(types.shoeType)
@@ -67,8 +84,8 @@ function uniqueColours() {
 function uniqueSizes() {
     var uniqSize = [];
     var sizeMap = {};
-    for (var x=0;x<stock.length;x++){
-        var sizes = stock[x];
+    for (var i=0;i<stock.length;i++){
+        var sizes = stock[i];
         if (sizeMap[sizes.shoeSize] === undefined){
             sizeMap[sizes.shoeSize] =  sizes.shoeSize;
             uniqSize.push(sizes.shoeSize)
@@ -107,10 +124,15 @@ add.addEventListener('click', function() {
     newSize.value = '';
     newQuantity.value = '';
     newPrice.value = '';  
+    document.querySelector('.tableDisplay').innerHTML = tableTemp({stock: stock})
     }
     myFunctions();
 });
 
+function stockUpdate() {
+    var stockDiv = document.getElementById('addingStock');       stockDiv.style.display = 'block';
+    alert('You must be a staff member to enter this section!')
+}
 
 var checkBtn = document.querySelector('.check');
 checkBtn.addEventListener('click', function() {
@@ -126,12 +148,10 @@ for(var i = 0; i < stock.length; i++) {
         pushToThis.push(shoeValue);
     }
 }
-document.querySelector('.tableDisplay').innerHTML = 
-        tableTemp({stock: pushToThis})
+document.querySelector('.tableDisplay').innerHTML = tableTemp({stock: pushToThis})
 });
 
 var showAll = document.querySelector('.showAllStock');
 showAll.addEventListener('click', function() {
-    document.querySelector('.tableDisplay').innerHTML = 
-        tableTemp({stock: stock})
+document.querySelector('.tableDisplay').innerHTML = tableTemp({stock: stock})
 });
