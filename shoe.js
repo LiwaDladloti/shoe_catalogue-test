@@ -129,26 +129,27 @@ add.addEventListener('click', function() {
     myFunctions();
 });
 
-function stockUpdate() {
+var updateStock = document.querySelector('.updateStock')
+updateStock.addEventListener('click', function() {
     var stockDiv = document.getElementById('addingStock');       stockDiv.style.display = 'block';
     alert('You must be a staff member to enter this section!')
-}
+})
 
 var checkBtn = document.querySelector('.check');
 checkBtn.addEventListener('click', function() {
 var typeDrop = document.querySelector('.types').value;
 var colorDrop = document.querySelector('.colors').value;
 var sizeDrop = document.querySelector('.sizes').value;
-    
+  
 var pushToThis = [];
-    
+
 for(var i = 0; i < stock.length; i++) {
     var shoeValue = stock[i];
     if(typeDrop === shoeValue.shoeType && colorDrop === shoeValue.shoeColour && sizeDrop === shoeValue.shoeSize) {
         pushToThis.push(shoeValue);
+        }
     }
-}
-document.querySelector('.tableDisplay').innerHTML = tableTemp({stock: pushToThis})
+    document.querySelector('.tableDisplay').innerHTML = tableTemp({stock: pushToThis})
 });
 
 var showAll = document.querySelector('.showAllStock');
